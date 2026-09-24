@@ -6,6 +6,27 @@ Python, targets LinkedIn Easy Apply plus generic ATS forms (Greenhouse,
 Lever, company career pages). See `NOTES.md` for per-platform limitations
 (especially Workday, and radio buttons).
 
+> **Disclaimer -- read before using.** This is a personal project, provided
+> as-is under the MIT license, with no warranty.
+>
+> - **Terms of service.** `search` reads the public job-search pages of
+>   LinkedIn, Amazon, Google, and TikTok by driving a browser; none of those
+>   sites' terms explicitly permit automated access, even at the deliberately
+>   slow, rate-limited pace used here. Greenhouse and Lever are queried
+>   through their public JSON APIs. Using this tool may violate a site's terms
+>   and could lead to captchas, rate limiting, or account restrictions. You are
+>   solely responsible for how you use it -- check each site's terms first, and
+>   back off (or turn off that source in `data/search_config.yaml`) if a site
+>   pushes back.
+> - **Applications are never auto-submitted.** The tool fills forms and stops;
+>   you review and click Submit yourself. Field matching is heuristic and can
+>   be wrong, especially on legal/EEO/sponsorship questions -- always read every
+>   filled field before submitting.
+> - **Your data stays local.** Profile, resume, tracking log, and OAuth tokens
+>   are gitignored. Gmail access is read-only and uses your own Google Cloud
+>   OAuth client; nothing is sent to any third party by this tool.
+> - Not affiliated with or endorsed by any company or site named here.
+
 ---
 
 ## 0. Where to run this: use your WSL terminal, not Windows
