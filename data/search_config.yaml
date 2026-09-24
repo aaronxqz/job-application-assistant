@@ -1,0 +1,82 @@
+# Config for `python -m autofill search`. No secrets here -- tracked in git.
+#
+# greenhouse_tokens / lever_companies: each company's public job-board API is
+# keyed by a short token/slug, not their normal domain name. Find a
+# company's token by checking their careers page footer (it often links
+# straight to boards.greenhouse.io/<token> or jobs.lever.co/<company>), or by
+# trying the API URL directly:
+#   https://boards-api.greenhouse.io/v1/boards/<token>/jobs
+#   https://api.lever.co/v0/postings/<company>?mode=json
+# A few common ones are seeded below -- verify these still resolve (some
+# companies switch ATS providers over time) and add more freely.
+
+greenhouse_tokens:
+  - "stripe"
+  - "airbnb"
+  - "doordashusa"
+  - "robinhood"
+  - "asana"
+
+lever_companies:
+  - "palantir"
+  - "kraken"
+
+linkedin_searches:
+  - keywords: "IT entry level"
+    location: "United States"
+  - keywords: "full time internship"
+    location: "United States"
+  - keywords: "site reliability engineer entry level"
+    location: "United States"
+  - keywords: "system administrator entry level"
+    location: "United States"
+
+amazon_searches:
+  - keywords: "software development engineer intern"
+    location: "United States"
+
+google_searches:
+  - keywords: "software engineering intern"
+    location: "United States"
+
+tiktok_searches:
+  - keywords: "software engineer intern"
+    location: "United States"
+
+# Loose relevance keywords -- "kinda related" is fine, this isn't an exact
+# match. Your education.degree from profile.yaml is appended automatically.
+keywords:
+  - "entry level"
+  - "internship"
+  - "junior"
+  - "software engineer"
+  - "IT support"
+  - "site reliability"
+  - "SRE"
+  - "devops"
+  - "system administrator"
+  - "systems administrator"
+  - "administrative"
+
+# Skip postings that look like they need real prior experience -- title
+# contains Senior/Staff/Principal/Manager/Director/Lead/Architect/VP (and
+# isn't also explicitly Intern/Entry Level/Junior/New Grad), or the JD
+# states "N+ years of experience" with N >= 3. See autofill/seniority.py.
+# Set to false to stop filtering these out during search.
+exclude_senior: true
+
+# Applies to the browser-based sources (LinkedIn/Amazon/Google/TikTok) --
+# Greenhouse/Lever are plain HTTP calls and aren't rate-limited.
+rate_limit:
+  browser_max_results_per_search: 25
+  browser_page_delay_ms: 3000
+  browser_search_delay_ms: 6000
+
+# Optional AI-drafted cover letters during `review`. When enabled, review
+# checks data/cover_letters/<company>-<role>.txt for each posting; if it's
+# not there yet, it pauses and tells you to ask Claude Code (in chat, not
+# this script -- no API key/cost) to draft one, save it to that path, then
+# continue. Set enabled: false to skip this entirely and never be prompted.
+cover_letters:
+  enabled: false
+  save_dir: "data/cover_letters"

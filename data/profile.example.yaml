@@ -1,0 +1,60 @@
+# Copy this file to data/profile.yaml and fill in your real info.
+# data/profile.yaml is gitignored so your personal data never gets committed by accident.
+
+personal:
+  first_name: "Jane"
+  last_name: "Doe"
+  email: "you@example.com"
+  phone: "555-555-5555"
+  address_line1: "123 Main St"
+  city: "Springfield"
+  state: "IL"
+  zip: "62701"
+  country: "United States"
+  linkedin_url: "https://linkedin.com/in/yourprofile"
+  github_url: "https://github.com/yourhandle"
+  portfolio_url: ""
+
+resume:
+  # Absolute path (WSL-style, e.g. /home/you/job-autofill/data/resume.pdf)
+  file_path: "./data/resume.pdf"
+  cover_letter_path: ""
+
+work_authorization:
+  authorized_to_work_in_us: true
+  requires_sponsorship_now_or_future: false
+  # Free-text answer used when a form asks you to explain visa/sponsorship status
+  sponsorship_explanation: ""
+
+eeo:
+  # These are legally optional almost everywhere in the US -- leave blank to
+  # select "Decline to answer" wherever the form offers it. Do NOT guess.
+  gender: ""
+  race_ethnicity: ""
+  veteran_status: ""
+  disability_status: ""
+
+education:
+  school: "Example University"
+  degree: "B.S. Computer Science"
+  degree_level: "Bachelor's Degree"
+  graduation_date: "2027-05"
+  gpa: ""
+
+experience_years:
+  total: 2
+  relevant_field: 1
+
+common_answers:
+  # Free text answers keyed by a short label you choose. The field matcher
+  # will fuzzy-match these labels against form question text.
+  why_interested: "I'm drawn to this role because..."
+  salary_expectation: "Open / negotiable based on total compensation"
+  start_date: "Immediately / within 2 weeks"
+  willing_to_relocate: "No"
+  security_clearance: "No"
+
+links:
+  linkedin: "https://linkedin.com/in/yourprofile"
+  github: "https://github.com/yourhandle"
+  website: ""

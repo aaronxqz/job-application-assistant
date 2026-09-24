@@ -1,0 +1,25 @@
+.venv/
+__pycache__/
+*.pyc
+data/profile.yaml
+data/resume.pdf
+data/resume.docx
+data/cover_letter.pdf
+data/cover_letters/
+browser_profile/
+applied_log.csv
+dashboard.html
+search.log
+mail.log
+.env
+data/google_client_secret.json
+data/gmail_token.json
+data/mail_seen.json
+
+# Personal documents / notes -- never commit
+data/*.pdf
+data/*.docx
+Issues.md
+.idea/
+.claude/
+*.log
